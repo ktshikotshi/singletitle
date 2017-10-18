@@ -6,32 +6,33 @@
 <head>
 <?php getStyles(); ?>
 <style type="text/css">
-#apDiv1 {
-	position:absolute;
-	left:12px;
-	/*top:90px;*/
-	width:593px;
-	height:68px;
+#container{
+	width: 80%;
+	margin: auto;
 }
-#apDiv2 {
-	position:absolute;
-	left:611px;
-	/*top:91px;*/
-	width:247px;
-	height:120px;
+#apDiv1 {
+	display:inline-block;
+	width:75%;
+	height: 100%;
+}
+#filter {
+	display:inline-block;
+	width:22%;
+	height: 100%;
 }
 </style>
 </head>
 <body>
 <?php getHeader(); ?>
+<div id="container">
 <div id="apDiv1">
-  <table width="578" border="0">
+  <table >
     <tr>
-      <td width="51">&nbsp;</td>
-      <td width="167">Product Name</td>
-      <td width="145">Category</td>
-      <td width="127">Price</td>
-      <td width="66">&nbsp;</td>
+      <td >&nbsp;</td>
+      <td>Product Name</td>
+      <td>Category</td>
+      <td>Price</td>
+      <td>&nbsp;</td>
     </tr>
 	<?php
 		while($row = mysql_fetch_array($result)){
@@ -45,7 +46,8 @@
 	?>
   </table>
 </div>
-<div id="apDiv2">
+
+<div id="filter">
   <form id="form1" name="form1" method="post" action="">
     <table width="200" border="0">
       <tr>
@@ -77,6 +79,7 @@
       </tr>
     </table>
   </form>
+</div>
 </div>
 </body>
 </html>
