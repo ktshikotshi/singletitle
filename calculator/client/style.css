@@ -1,16 +1,4 @@
-/*
-tr.even{
-background-color:#fff;
-}
-tr.odd{
-background-color:#dadada;
-}
-*/
-
 th{white-space:nowrap;}
-
-.pagination{
-}
 .page-link{
 float:left;
 background-color:darkgray;

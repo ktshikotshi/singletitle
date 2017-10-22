@@ -14,7 +14,12 @@ body {
   background: #fff;
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
-
+even{
+  background-color:#fff;
+  }
+  odd{
+  background-color:#e7e6e6 !important;
+  }
 
 /* Headings
 -------------------------------------------------------------- */

@@ -119,7 +119,7 @@ $sql = "SELECT * FROM `".$config['table']."` ORDER BY $orderby $sort LIMIT $star
 $result = mysql_query($sql) or die(mysql_error());
 
 //START TABLE AND TABLE HEADER
-echo "<table>\n<tr>";
+echo "<table style='border: #000 2px solid;padding: 20%;'>\n<tr>";
 $array = mysql_fetch_assoc($result);
 foreach ($array as $key=>$value) {
 	if($config['nicefields']){
@@ -137,13 +137,12 @@ echo "</tr>\n";
 mysql_data_seek($result,0);
 
 //start first row style
-$tr_class = "class='odd'";
+$tr_class = "class='odd' style='background-color:#e7e6e6 !important;'";
 
 //LOOP TABLE ROWS
 while($row = mysql_fetch_assoc($result)){
 	echo "<tr {$tr_class}>\n";
 	foreach ($row as $field=>$value) {
-		//echo "{$field}=>{$value}";
 		if ($field == "product_id")
 		{
 			$id = $value;
@@ -154,11 +153,10 @@ while($row = mysql_fetch_assoc($result)){
 	echo "</tr>\n";
 	
 	//switch row style
-	if($tr_class == "class='odd'"){
-		$tr_class = "class='even'";
-	}else{
-		$tr_class = "class='odd'";
-	}
+	if($tr_class == "class='odd' style='background-color:#e7e6e6 !important;'") 
+		$tr_class = "class='Even' style='background-color:#fff !important;'";
+	else
+		$tr_class = "class='odd' style='background-color:#e7e6e6 !important;'";
 	
 }
 
