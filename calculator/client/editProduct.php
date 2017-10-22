@@ -28,6 +28,27 @@ if ($_GET) {
         $price_ret = mysql_fetch_array(mysql_query($sql));
     }
 }
+if (isset($_POST["delete"])){
+    //echo "fkjsdfkdjf";
+    $sql = "DELETE FROM singletitle_product_list WHERE product_id={$product};";
+    $retval = mysql_query($sql);
+    if(! $retval ) {
+        die('Could not delete data: ' . mysql_error());
+     }
+     else{
+        $sql = "DELETE FROM singletitle_price_list WHERE product_id={$product};";
+        $retval = mysql_query($sql);
+        if(! $retval ) {
+            die('Could not delete data: ' . mysql_error());
+        }
+        else
+        {
+            echo "Deleted data successfully\n";
+            header("Location: http://localhost/calculator/client/dash.php");
+        }
+     }
+    $inseert = false;
+}
 
 ?>
 <html>
@@ -58,9 +79,9 @@ if ($_GET) {
                     <label for="product_price">Product Price:</label>
                     <input type="text" name="product_price" value='<?php echo ($insert == false ?  $price_ret['price'] : ""); ?>'>                                        
                     <br/>
-                    <?php echo ($insert?  "<button type='button' name='insert' >New Product" : ""); ?>
-                    <?php echo ($insert == false ?  "<button type='button' name='edit' >Edit Product" : ""); ?>
-                    <?php echo ($insert == false ?  "<button type='button' name='delete' >Delete Product" : ""); ?>  
+                    <?php echo ($insert?  "<button type='submit' name='insert' >New Product" : ""); ?>
+                    <?php echo ($insert == false ?  "<button type='submit' name='edit' >Edit Product" : ""); ?>
+                    <?php echo ($insert == false ?  "<button type='submit' name='delete' >Delete Product" : ""); ?>  
                 </form>
             </div>
         </div>

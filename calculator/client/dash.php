@@ -149,7 +149,7 @@ while($row = mysql_fetch_assoc($result)){
 		}
 		echo "<td>{$value}</td>\n";
 	}
-	echo "<td><a href='/editProduct.php?id={$id}'>Edit</a></td>\n";	
+	echo "<td><a href='/calculator/client/editProduct.php?id={$id}'>Edit</a></td>\n";	
 	echo "</tr>\n";
 	
 	//switch row style
