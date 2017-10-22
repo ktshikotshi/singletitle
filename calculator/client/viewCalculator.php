@@ -4,13 +4,13 @@
 <?php include ("../../header.php"); ?>
 <?php session_start();
 
-if (empty($_POST['length']) && empty($_POST['width'])){
-	$_SESSION['length'] = "";
-	$_SESSION['width'] = "";
-	echo "An empty post was sent";
-} else{
-	$_SESSION['length'] = $_POST['length'];
-	$_SESSION['width'] = $_POST['width'];
+if (empty($_POST['length']) && empty($_POST['width'])) {
+    $_SESSION['length'] = "";
+    $_SESSION['width'] = "";
+    echo "An empty post was sent";
+} else {
+    $_SESSION['length'] = $_POST['length'];
+    $_SESSION['width'] = $_POST['width'];
 }
 
 $_SESSION['unitPrice']; //not really necessary
@@ -18,15 +18,15 @@ $_SESSION['length'];
 $_SESSION['width'];
 $_SESSION['floorID'];
 
-	if ($_SESSION['floorID'] == "" && $_SESSION['length'] == "" && $_SESSION['width'] == "" && $_SESSION['floorID'] == ""){
-		echo "dud: ".$_SESSION['unitPrice'];
-	}else {
-		$_SESSION['length'] = $_POST['length'];
-		$_SESSION['width'] = $_POST['width'];
-			if ($_SESSION['floorID'] ==""){
-				$_SESSION['floorID'] = $_REQUEST['ID'];
-			}
-	}
+if ($_SESSION['floorID'] == "" && $_SESSION['length'] == "" && $_SESSION['width'] == "" && $_SESSION['floorID'] == "") {
+    echo "dud: ".$_SESSION['unitPrice'];
+} else {
+    $_SESSION['length'] = $_POST['length'];
+    $_SESSION['width'] = $_POST['width'];
+    if ($_SESSION['floorID'] =="") {
+        $_SESSION['floorID'] = $_REQUEST['ID'];
+    }
+}
 ?>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -34,10 +34,10 @@ $_SESSION['floorID'];
     <title>Calculate</title>
     <?php getStyles(); ?>
     <style type="text/css">
-	html{
-		font-family: "Arial";
-		font-weight: bold;
-	}
+    html{
+        font-family: "Arial";
+        font-weight: bold;
+    }
         #container {
             width: 603px;
             height: 350px;
@@ -85,7 +85,7 @@ $_SESSION['floorID'];
         #innerContent {
             width: 100%;
             top: -50px;
-			padding-top: 10px;
+            padding-top: 10px;
             height: 85%;
             background-color: white;
         }
@@ -96,7 +96,7 @@ $_SESSION['floorID'];
             height: 50%;
             left: 4%;
             margin: auto;
-			border: solid black 1px;
+            border: solid black 1px;
         }
         #buttons {
             display: inline-block;
@@ -105,11 +105,11 @@ $_SESSION['floorID'];
             width: 91%;
             height: 50%;
         }
-		.button {
+        .button {
     background-color: orange;
     border: none;
     color: white;
-	border-radius: 5%;
+    border-radius: 5%;
     padding: 10px 32px;
     text-align: center;
     text-decoration: none;
@@ -119,7 +119,7 @@ $_SESSION['floorID'];
     width:200px;
 }
 .center{
-	width: 80%;
+    width: 80%;
             height: 50px;
             top: 0;
             bottom: 0;
@@ -128,8 +128,8 @@ $_SESSION['floorID'];
             margin: auto;
 }
 #bt{
-	width:80%;
-	margin: auto;
+    width:80%;
+    margin: auto;
 }
     </style>
 </head>
@@ -153,13 +153,17 @@ $_SESSION['floorID'];
                                     <tr>
                                         <td width="48">
                                             <label>
-                                                <input name="length" type="text" id="length" size="8" value="<?php  if (!$_SESSION['length'] == " "){ echo $_SESSION['length'];} ?>" />
+                                                <input name="length" type="text" id="length" size="8" value="<?php  if (!$_SESSION['length'] == " ") {
+                                                    echo $_SESSION['length'];
+} ?>" />
                                             </label>
                                         </td>
                                         <td width="8">x</td>
                                         <td width="130">
                                             <label>
-                                                <input name="width" type="text" id="width" size="8" value="<?php  if (!$_SESSION['width'] == " "){ echo $_SESSION['width'];} ?>" />
+                                                <input name="width" type="text" id="width" size="8" value="<?php  if (!$_SESSION['width'] == " ") {
+                                                    echo $_SESSION['width'];
+} ?>" />
                                             </label>
                                         </td>
                                     </tr>
@@ -185,22 +189,25 @@ $_SESSION['floorID'];
                     </table>
                 </div>
                 <div class="IO">
-				<table width="242" height="147" border="0">
+                <table width="242" height="147" border="0">
     <tr>
       <td height="24">Price</td>
     </tr>
     <tr>
       <td><label style="font-size:35px;">
-        <?php  if ($_SESSION['length'] == "" && $_SESSION['width'] == ""){ echo $_SESSION['unitPrice'];} else {
-																		$area = ($_SESSION['length']*$_SESSION['width']); $total = $_SESSION['unitPrice']*$area;
-																		$extras = $_POST['extras'];
-																		echo $total + $extras;
-																	 }?>
+        <?php  if ($_SESSION['length'] == "" && $_SESSION['width'] == "") {
+            echo $_SESSION['unitPrice'];
+} else {
+                                                                        $area = ($_SESSION['length']*$_SESSION['width']);
+    $total = $_SESSION['unitPrice']*$area;
+                                                                        $extras = $_POST['extras'];
+                                                                        echo $total + $extras;
+}?>
       </label></td>
     </tr>
   </table></div>
                 <div id="buttons">
-				<table id="bt">
+                <table id="bt">
     <tr>
       <td><center><input type = "image"  alt="Calculate" width="91" height="22" class="button"/></center></td>
     </tr>
@@ -208,7 +215,7 @@ $_SESSION['floorID'];
       <td><center><input type="image" src="../buttons/button_reset.jpg" alt="reset" width="91" height="22" align="absmiddle" /></center></td>
     </tr>
   </table>
-				</div>
+                </div>
             </div>
         </div>
         </div>
