@@ -4,6 +4,18 @@
 <?php include ("../../header.php"); ?>
 <?php session_start();
 
+$con = mysql_connect($localhost, $database_user, $database_password);
+if (!$con) {
+    die('Something definitely went wrong.. You might want to look this up: '.mysql_error());
+}
+mysql_select_db($database_name, $con);
+$product = $_GET["id"];
+//get product
+{
+    $sql="SELECT * FROM singletitle_product_list WHERE product_id={$product};";
+    $product_ret = mysql_fetch_array(mysql_query($sql));
+}
+
 if (empty($_POST['length']) && empty($_POST['width'])) {
     $_SESSION['length'] = "";
     $_SESSION['width'] = "";
@@ -27,6 +39,7 @@ if ($_SESSION['floorID'] == "" && $_SESSION['length'] == "" && $_SESSION['width'
         $_SESSION['floorID'] = $_REQUEST['ID'];
     }
 }
+
 ?>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -139,7 +152,7 @@ if ($_SESSION['floorID'] == "" && $_SESSION['length'] == "" && $_SESSION['width'
         <div id="content">
             <div id="instQoute">Instant Quote</div>
             <div id="producContainer">
-                <p id="pruductName">TEST</p>
+                <p id="pruductName"><?php echo $product_ret["product_name"] ?></p>
             </div>
             <div id="innerContent">
                 <div class="IO">

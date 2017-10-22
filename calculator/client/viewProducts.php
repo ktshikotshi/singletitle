@@ -116,10 +116,8 @@ function filter(){
         echo "<td>".$row['product_name']."</td>";
         echo "<td>".$row['category_name']."</td>";
         echo "<td>".$row['price']."</td>";
-        echo '<td><a href="viewCalculator.php?ID='.$row['product_id'].'"><img src="../buttons/button_view.jpg" width="71" height="17" /></a>';
-
+        echo '<td><a href="/calculator/client/viewCalculator.php?id='.$row['product_id'].'"><img src="../buttons/button_view.jpg" width="71" height="17" /></a>';
         echo "</td></tr>";
-        
         echo '<tr class="spacer '.$row[category_id].'"></tr>';
     }
     ?>

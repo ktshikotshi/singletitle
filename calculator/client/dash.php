@@ -119,7 +119,7 @@ $sql = "SELECT * FROM `".$config['table']."` ORDER BY $orderby $sort LIMIT $star
 $result = mysql_query($sql) or die(mysql_error());
 
 //START TABLE AND TABLE HEADER
-echo "<table style='border: #000 2px solid;padding: 20%;'>\n<tr>";
+echo "<h1 style='text-align: center;'>Product settings</h1><table style='border: #000 2px solid;padding: 20%;'>\n<tr>";
 $array = mysql_fetch_assoc($result);
 foreach ($array as $key=>$value) {
 	if($config['nicefields']){

@@ -93,12 +93,58 @@ if (isset($_POST["insert"])) {
     <head>
         <?php getStyles(); ?>
         <title><?php echo ($insert == true ?  "New Product" : "Edit product"); ?></title>
+        <style>
+            .container{
+                width: 80%;
+                margin: auto;
+            }
+            h1{
+                text-align: center;
+            }
+            .form{
+                width: 80%;
+                margin: auto;
+                padding: 60px;
+                background-color:#e7e6e6
+            }
+            input[type=text], select
+            {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+
+            input[type=submit] {
+                width: 100%;
+                background-color: #4CAF50;
+                color: white;
+                padding: 14px 20px;
+                margin: 8px 0;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            #delete{
+                background-color: red;                
+            }
+            input[type=submit]:hover {
+                background-color: #45a049;
+            }
+            #delete:hover {
+                background-color: #c55555;
+            }
+
+        </style>
     </head>
     <body>
         <?php  getHeader();?>
         <div class="container">
             <h1><?php echo ($insert == true ?  "New Product" : "Edit product"); ?></h1>
-            <div>
+            <div class="form">
                 <form action="" method="post">
                     <label for="product_name">Product Name:</label>
                     <input type="text" name="product_name" value='<?php echo ($insert == false ?  $product_ret['product_name'] : ""); ?>'>
@@ -121,9 +167,9 @@ if (isset($_POST["insert"])) {
                     <label for="product_price">Product Price:</label>
                     <input type="text" name="product_price" value='<?php echo ($insert == false ?  $price_ret['price'] : ""); ?>'>                                        
                     <br/>
-                    <?php echo ($insert?  "<button type='submit' name='insert' >New Product" : ""); ?>
-                    <?php echo ($insert == false ?  "<button type='submit' name='edit' >Edit Product" : ""); ?>
-                    <?php echo ($insert == false ?  "<button type='submit' name='delete' >Delete Product" : ""); ?>  
+                    <?php echo ($insert?  "<input type='submit' name='insert' value='New Product'>" : ""); ?>
+                    <?php echo ($insert == false ?  "<input type='submit' name='edit' value='Edit Product'>" : ""); ?>
+                    <?php echo ($insert == false ?  "<input type='submit' name='delete' id='delete' value='Delete Product'>" : ""); ?>  
                 </form>
             </div>
         </div>
