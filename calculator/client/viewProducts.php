@@ -5,6 +5,8 @@
 <html>
 <head>
 <?php getStyles(); ?>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style type="text/css">
 #container{
     width: 80%;
@@ -107,16 +109,16 @@ function filter(){
       <td><b>Product Name</td>
       <td><b>Category</td>
       <td><b>Price</td>
-      <td>&nbsp;</td>
+      <td style="background-color:#fff;">&nbsp;</td>
     </tr>
     <tr class="spacer"></tr>
     <?php
     while ($row = mysql_fetch_array($result)) {
-        echo '<tr class="'.$row[category_id].'"><td><a href="../domain/viewProductPage.php?ID='.$row['price'].'"><img src="../buttons/button_home.jpg" width="71" height="17" /></a></td>';
+        echo '<tr class="'.$row[category_id].'"><td><a href="../domain/viewProductPage.php?ID='.$row['price'].'"><i class="fa fa-external-link"></i></a></td>';
         echo "<td>".$row['product_name']."</td>";
         echo "<td>".$row['category_name']."</td>";
         echo "<td>".$row['price']."</td>";
-        echo '<td><a href="/calculator/client/viewCalculator.php?id='.$row['product_id'].'"><img src="../buttons/button_view.jpg" width="71" height="17" /></a>';
+        echo '<td><a href="/calculator/client/viewCalculator.php?id='.$row['product_id'].'" class="w3-btn w3-blue" style="text-decoration: none;">get quote</a>';
         echo "</td></tr>";
         echo '<tr class="spacer '.$row[category_id].'"></tr>';
     }
@@ -154,8 +156,7 @@ function filter(){
         <tr class="spacer"></tr>
         <tr><td><input type="checkbox" name="category_LaminateFloors"  id="category_LaminateFloors" Checked />
         Laminate Floors</td ></tr>
-
-        <tr class="spacer"><td><input type = "image" onClick="filter();" img src="../buttons/button_plain.jpg" alt="filter" width="91" height="22" align="right" /></td>
+        <tr class="spacer"><td style="text-align: right;"><input type = "button" onClick="filter();" value="Apply Filter" class="w3-btn w3-orange"/></td>
         </td>
       </tr>
     </table>
