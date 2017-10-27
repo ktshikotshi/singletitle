@@ -15,43 +15,43 @@ body { height: 100%; background-color: #FFFFFF; font: 1.2em Verdana, Arial, Helv
 
 
 
-#tbl.form { margin: auto; border-collapse: collapse; border: 1px solid #DDDDDD; }
+table.form { margin: auto; border-collapse: collapse; border: 1px solid #DDDDDD; }
 
 
 
-#tbl.form th, #tbl.form td { padding: 4px 5px 10px; text-align: left; font-weight: normal; }
+table.form th, table.form td { padding: 4px 5px 10px; text-align: left; font-weight: normal; }
 
 
 
-#tbl.form label { font-family: Verdana, Arial, Helvetica, sans-serif; color: #181818; margin-right: 12px; }
+table.form label { font-family: Verdana, Arial, Helvetica, sans-serif; color: #181818; margin-right: 12px; }
 
-#tbl.form td span { font-size: 0.9em; color: #181818; margin-left: 8px; }
+table.form td span { font-size: 0.9em; color: #181818; margin-left: 8px; }
 
-#tbl.form td samp { font: 1em Verdana, Arial, Helvetica, sans-serif; color: #000000; }
-
-
-
-#tbl.form input.answer { width: 53px; }
-
-#tbl.form textarea { width: 400px; height: 160px; }
+table.form td samp { font: 1em Verdana, Arial, Helvetica, sans-serif; color: #000000; }
 
 
 
-#tbl.form input.inp-text, #tbl.form input.answer, #tbl.form textarea
+table.form input.answer { width: 53px; }
+
+table.form textarea { width: 400px; height: 160px; }
+
+
+
+table.form input.inp-text, table.form input.answer, table.form textarea
 
 { border: 1px solid #909090; padding: 2px; }
 
 
 
-#tbl.form th.message-up { vertical-align: top !important; }
+table.form th.message-up { vertical-align: top !important; }
 
 
 
-#tbl.form label.invisible { visibility: hidden; }
+table.form label.invisible { visibility: hidden; }
 
 
 
-#tbl.form label.email { border-bottom: 1px dotted #000000; }
+table.form label.email { border-bottom: 1px dotted #000000; }
 
 
 

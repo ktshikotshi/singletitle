@@ -1,12 +1,19 @@
 <?php
 error_reporting(0);
  include ("dbConfig.php");
- include("header.php"); 
+ include("header.php");
  
 $msg = "";
-if ($_SESSION['user'] != "")
+if (isset($_GET['lg']))
+{
+	$_SESSION['user'] = "";
+	header('Location: /login.php');
+	exit;
+}
+
+if (!empty($_SESSION['user']))
 	{
-		header('Location: /');
+		header('Location: /dashboard');
 		exit;
 	}
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -24,12 +31,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         if (mysql_num_rows($query) > 0) {
-            $_SESSION['user'] == $name;            
-            header('Location: /');
+            $_SESSION['user'] = $name;            
+			header('Location: /dashboard');
+			$msg = $_SESSION['user'] ;
             exit;
         }
 
-        $msg = "Username and password do not match";
+       $msg = "Username and password do not match";
     }
 }
 ?>

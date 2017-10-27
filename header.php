@@ -1,9 +1,6 @@
 <?php
 error_reporting(0);
-if (session_status() == PHP_SESSION_NONE) {
-	session_start();
-	$_SESSION["user"] == "";
-}
+session_start();
 function getStyles(){ ?>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -51,23 +48,32 @@ function getStyles(){ ?>
 		<div class="header-top">
 			<ul class="topnav" id="myTopnav">
 				<li>
-					<a href="index.html">Home</a>
+					<a href="/index.html">Home</a>
 				</li>
 				<li>
-					<a href="ourproducts.html">Products</a>
+					<a href="/ourproducts.html">Products</a>
 				</li>
 				<li>
-					<a href="gallery.html">Gallery</a>
+					<a href="/gallery.html">Gallery</a>
 				</li>
 				<li>
-					<a href="ourservices.html">Services</a>
+					<a href="/ourservices.html">Services</a>
 				</li>
 				<li>
-					<a href="contact.php">Contact Us</a>
+					<a href="/contact.php">Contact Us</a>
 				</li>
 				<li>
-					<a href="links.html">Links</a>
+					<a href="/links.html">Links</a>
 				</li>
+				<?php
+				if (!empty($_SESSION['user'])){
+				?>
+				<li>
+					<a href="/login.php?lg=0"><?php echo $_SESSION['user']?> - Logout</a>
+				</li>
+				<?php
+				}
+				?>
 				<li class="icon">
 					<a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
 				</li>
