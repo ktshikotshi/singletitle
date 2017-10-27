@@ -4,6 +4,8 @@
 
 * import the /login/registration.sql into your database
 * use your server details in /dbconfig.php and /dashboard.php
+* open /letmein.php for reseting the admin password or creating the admin account.
+* * user: admin; Password: 123456
 
 ## Notes ##
 
