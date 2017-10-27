@@ -69,8 +69,18 @@ function getStyles(){ ?>
 				if (!empty($_SESSION['user'])){
 				?>
 				<li>
-					<a href="/login.php?lg=0"><?php echo $_SESSION['user']?> - Logout</a>
-				</li>
+				<a href="/register.php">New User</a>							
+			</li>
+			<?php
+			if ($_SESSION['user'] == 'admin'){
+			 ?>
+				<li>
+				<a href="/register.php?modif=1">Update Password</a>							
+				</li> 
+			 <?php } ?>
+			<li>
+				<a href="/login.php?lg=0"><?php echo $_SESSION['user']?> - Logout</a>							
+			</li>
 				<?php
 				}
 				?>

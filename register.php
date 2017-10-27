@@ -1,14 +1,17 @@
 <?php
-error_reporting(0);
 include("dbConfig.php");
 include("header.php");
 
 $msg = "";
-$update = false;
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-	if ($_GET['modif'] == 1)
+if (isset($_GET['modif'])) {
+	if ($_GET['modif'] == 1){
 		$update = true;
+	}
+	
 }
+else
+	$update = false;
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {	
 	$name = $_POST["name"];
 	if ($_POST['password'] == $_POST['rpassword']){
     $password = md5($_POST["password"]);
@@ -26,13 +29,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 		$sql = "SELECT * FROM members WHERE name = '$name' AND password = '$password'";
         $query = mysql_query($sql);
         if (mysql_num_rows($query) > 0) {
-            header('Location: login.php');
+            header('Location: /login.php');
             exit;
         }
 
 		$msg = "Username and password do not match";
 	}
 	$msg = "passwords do not match";
+}
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -47,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 </head>
 <body>
 <?php getHeader(); ?>
-<h1 style="text-align:center;"><?php echo $_SESSION['user'] != 'admin' && $update == false ? "Register New User" : "Update Password"; ?></h1>	
+<h1 style="text-align:center;"><?php echo ($_SESSION['user'] == 'admin' && $update == true) ? "Update Password" : "Register New User" ; ?></h1>	
 <form name="frmregister"action="<?= $_SERVER['PHP_SELF'] ?>" method="post" >
 		<table class="form" border="0">
 
