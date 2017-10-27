@@ -47,7 +47,7 @@ function getStyles(){ ?>
 <div class="header">
 		<div class="header-top">
 			<ul class="topnav" id="myTopnav">
-				<li>
+			<!--	<li>
 					<a href="/index.html">Home</a>
 				</li>
 				<li>
@@ -64,6 +64,12 @@ function getStyles(){ ?>
 				</li>
 				<li>
 					<a href="/links.html">Links</a>
+				</li> -->
+				<li>
+					<a href="/dashboard/">Dashboard</a>
+				</li>
+				<li>
+					<a href="/calculator/client/viewProducts.php">Products</a>
 				</li>
 				<?php
 				if (!empty($_SESSION['user'])){
