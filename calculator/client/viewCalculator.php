@@ -47,17 +47,11 @@ if ($_SESSION['floorID'] == "" && $_SESSION['length'] == "" && $_SESSION['width'
     <title>Calculate</title>
     <?php getStyles(); ?>
     <style type="text/css">
-    html{
-        font-family: "Arial";
-        font-weight: bold;
-    }
         #container {
             width: 603px;
             height: 350px;
             background-color: #000;
             position: absolute;
-            top: 250px;
-            bottom: 0;
             left: 0;
             right: 0;
             margin: auto;
@@ -148,6 +142,8 @@ if ($_SESSION['floorID'] == "" && $_SESSION['length'] == "" && $_SESSION['width'
 </head>
 <body>
 <?php getHeader(); ?>
+
+<h1 style="text-align:center;clear:both;">Quote Calculator</h1>
     <div id="container">
         <div id="content">
             <div id="instQoute">Instant Quote</div>

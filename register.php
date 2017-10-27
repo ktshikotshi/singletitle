@@ -1,7 +1,6 @@
 <?php
-include("dbConfig.php");
 include("header.php");
-
+include("dbConfig.php");
 $msg = "";
 if (isset($_GET['modif'])) {
 	if ($_GET['modif'] == 1){
