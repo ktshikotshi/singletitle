@@ -3,7 +3,7 @@
     <?php include ("../config/config.php"); ?>
     <?php include ("../../header.php"); ?>
     <?php session_start();
-
+     $_SESSION["newProd"] = false;      
     $con = mysql_connect($localhost, $database_user, $database_password);
     if (!$con) {
         die('Something definitely went wrong.. You might want to look this up: '.mysql_error());

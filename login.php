@@ -2,7 +2,7 @@
 error_reporting(0);
  include ("dbConfig.php");
  include("header.php");
- 
+ $_SESSION["newProd"] = false; 
 $msg = "";
 if (isset($_GET['lg']))
 {

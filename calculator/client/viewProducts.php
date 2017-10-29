@@ -1,6 +1,7 @@
 <?php
     include("../../header.php");
     include("../scripts/_getAllProductsFormatted.php");
+    $_SESSION["newProd"] = false;     
 ?>
 <html>
 <head>

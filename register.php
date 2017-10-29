@@ -1,6 +1,7 @@
 <?php
 include("header.php");
 include("dbConfig.php");
+$_SESSION["newProd"] = false; 
 $msg = "";
 if (isset($_GET['modif'])) {
 	if ($_GET['modif'] == 1){

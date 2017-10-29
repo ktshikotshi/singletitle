@@ -1,5 +1,6 @@
 <?php
-include("header.php")
+include("header.php");
+$_SESSION["newProd"] = false; 
 ?>
 <html>
 <head>
