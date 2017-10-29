@@ -66,26 +66,26 @@ function getStyles(){ ?>
 					<a href="/links.html">Links</a>
 				</li> -->
 				<li>
-					<a href="/dashboard/">Dashboard</a>
+					<a href="./dashboard/">Dashboard</a>
 				</li>
 				<li>
-					<a href="/calculator/client/viewProducts.php">Products</a>
+					<a href="./calculator/client/viewProducts.php">Products</a>
 				</li>
 				<?php
 				if (!empty($_SESSION['user'])){
 				?>
 				<li>
-				<a href="/register.php">New User</a>							
+				<a href="./register.php">New User</a>							
 			</li>
 			<?php
 			if ($_SESSION['user'] == 'admin'){
 			 ?>
 				<li>
-				<a href="/register.php?modif=1">Update Password</a>							
+				<a href="./register.php?modif=1">Update Password</a>							
 				</li> 
 			 <?php } ?>
 			<li>
-				<a href="/login.php?lg=0"><?php echo $_SESSION['user']?> - Logout</a>							
+				<a href="./login.php?lg=0"><?php echo $_SESSION['user']?> - Logout</a>							
 			</li>
 				<?php
 				}
