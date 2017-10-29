@@ -1,0 +1,28 @@
+@charset "utf-8";
+.mainHeader {
+}
+#logoleft {
+	width: 192px;
+	height: 192px;
+	background-color: #DC3336;
+	float: left;
+}
+#logoright {
+	width: 192px;
+	height: 192px;
+	background-color: #1F9B95;
+	float: right;
+}
+#headerMid {
+	width: 400px;
+	background-color: #6F44E9;
+	float: left;
+}
+
+@media screen and (max-width:768px){
+#headerMid {
+	visibility: collapse;
+	display: none;
+}
+
+}
