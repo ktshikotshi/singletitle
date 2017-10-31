@@ -3,42 +3,41 @@
     <?php include ("../config/config.php"); ?>
     <?php include ("../../header.php"); ?>
     <?php session_start();
-     $_SESSION["newProd"] = false;      
-    $con = mysql_connect($localhost, $database_user, $database_password);
-    if (!$con) {
-        die('Something definitely went wrong.. You might want to look this up: '.mysql_error());
-    }
-    mysql_select_db($database_name, $con);
-    $product = $_GET["id"];
-//get product
-    {
-    $sql="SELECT * FROM singletitle_product_list WHERE product_id={$product};";
-    $product_ret = mysql_fetch_array(mysql_query($sql));
-    }
-    if (isset($_POST['submit'])) {
-        if (empty($_POST['length']) && empty($_POST['width'])) {
-            $_SESSION['length'] = "";
-            $_SESSION['width'] = "";
-            echo "An empty post was sent";
-        } else {
-            $_SESSION['length'] = $_POST['length'];
-            $_SESSION['width'] = $_POST['width'];
+     $_SESSION["newProd"] = false;
+     if (isset($_GET["id"])){   
+        $con = mysql_connect($localhost, $database_user, $database_password);
+        if (!$con) {
+            die('Something definitely went wrong.. You might want to look this up: '.mysql_error());
         }
-
-        $_SESSION['unitPrice']; //not really necessary
-        $_SESSION['length'];
-        $_SESSION['width'];
-        $_SESSION['floorID'];
-
-        if ($_SESSION['floorID'] == "" && $_SESSION['length'] == "" && $_SESSION['width'] == "" && $_SESSION['floorID'] == "") {
-            echo "dud: ".$_SESSION['unitPrice'];
-        } else {
-            $_SESSION['length'] = $_POST['length'];
-            $_SESSION['width'] = $_POST['width'];
-            if ($_SESSION['floorID'] =="") {
-                $_SESSION['floorID'] = $_REQUEST['ID'];
+        mysql_select_db($database_name, $con);
+        $product = $_GET["id"];
+        //get product
+        {
+            $sql="SELECT * FROM singletitle_product_list WHERE product_id={$product};";
+            $product_ret = mysql_fetch_array(mysql_query($sql));
+        }
+        //get price
+        {
+            $sql="SELECT * FROM singletitle_price_list WHERE product_id={$product};";
+            $price_ret = mysql_fetch_array(mysql_query($sql));
+            if (empty($price_ret))
+            {
+                header("location : /calculator/client/viewProducts.php");
+            exit();
+            }
+            else
+                $unitPrice = $price_ret["price"];
             }
         }
+    $posted = false;
+    if (isset($_POST["submit"])){
+        $width = $_POST["width"];
+        $length = $_POST["length"];
+        $extra = $_POST["extras"];
+        $posted = true;
+        //calculate area;
+        $area = $width * $length;
+        $totalPrice = ($area * $unitPrice) + $extra;
     }
 ?>
     <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -176,17 +175,13 @@
                                         <tr>
                                             <td width="48">
                                                 <label>
-                                                <input name="length" type="text" id="length" size="8" value="<?php  if (!$_SESSION['length'] == " ") {
-                                                    echo $_SESSION['length'];
-} ?>" />
+                                                <input name="length" type="text" id="length" size="8" value="<?php echo $posted == true ? $length : 1;?>" />
                                             </label>
                                             </td>
                                             <td width="8">x</td>
                                             <td width="130">
                                                 <label>
-                                                <input name="width" type="text" id="width" size="8" value="<?php  if (!$_SESSION['width'] == " ") {
-                                                    echo $_SESSION['width'];
-} ?>" />
+                                                <input name="width" type="text" id="width" size="8" value="<?php echo $posted == true ? $width : 1;?>"/>
                                             </label>
                                             </td>
                                             <td width="8">m</td>                                            
@@ -197,12 +192,12 @@
                         </table>
                         <table width="215" height="71" border="0">
                             <tr>
-                                        Extras<br>
-                                    <select name="extras" id="extras">
-                                        <option value="0">None</option>
-                                        <option value="350">Monocoat</option>
-                                        <option value="550">Waterproofing</option>
-                                    </select>
+                                Extras<br>
+                                <select name="extras" id="extras">
+                                    <option value="0">None</option>
+                                    <option value="350">Monocoat</option>
+                                    <option value="550">Waterproofing</option>
+                                </select>
                             </tr>
                         </table>
                     </div>
@@ -212,16 +207,15 @@
                                 <td height="24">Price</td>
                             </tr>
                             <tr class="price">
-                                <td><label style="font-size:35px;">
-        <?php  if ($_SESSION['length'] == "" && $_SESSION['width'] == "") {
-            echo $_SESSION['unitPrice'];
-} else {
-                                                                        $area = ($_SESSION['length']*$_SESSION['width']);
-    $total = $_SESSION['unitPrice']*$area;
-                                                                        $extras = $_POST['extras'];
-                                                                        echo $total + $extras;
-}?>
-      </label></td>
+                                <td>
+                                    <label style="font-size:35px;">
+                                        <?php
+                                        if ($posted == true){
+                                            echo $totalPrice;
+                                        } 
+                                        ?>
+                                    </label>
+                                </td>
                             </tr>
                         </table>
                     </div>
