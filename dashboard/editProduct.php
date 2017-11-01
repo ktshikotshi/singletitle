@@ -46,7 +46,7 @@ if (isset($_POST["delete"])) {
         } else {
             //if deletation was successful, return to the table page.
             echo "Deleted data successfully\n";
-            header("Location: http://localhost/calculator/client/dash.php");
+            header("Location: /dashboard/");
         }
     }
 }
@@ -64,7 +64,7 @@ if (isset($_POST["edit"])) {
         } else {
             //if update was successful, return to the table page.
             echo "Updated data successfully\n";
-            header("Location: http://localhost/calculator/client/dash.php");
+            header("Location: /dashboard/");
         }
     }
 }
