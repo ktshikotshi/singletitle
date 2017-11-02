@@ -57,7 +57,7 @@ if (isset($_POST["edit"])) {
     if (! $retval) {
         die('Could not add data: ' . mysql_error());
     } else {
-        $sql = "UPDATE singletitle_price_list SET price={$_POST["product_price"]} WHERE product_id={$product};";
+        $sql = "UPDATE singletitle_price_list SET all_price={$_POST["product_price"]}, Supply_onlyPrice={$_POST["sup_price"]}, Install_onlyPrice={$_POST["inst_price"]} WHERE product_id={$product};";
         $retval = mysql_query($sql);
         if (! $retval) {
             die('Could not add data: ' . mysql_error());
@@ -76,7 +76,7 @@ if (isset($_POST["insert"])) {
         die('Could not update data: ' . mysql_error());
     } else {
         $id = mysql_insert_id();
-        $sql = "INSERT INTO singletitle_price_list (product_id, price, price_status) VALUES ({$id}, {$_POST["product_price"]}, 1);";
+        $sql = "INSERT INTO singletitle_price_list (product_id, inclucivePrice, Supply_onlyPrice, Install_onlyPrice, price_status) VALUES ({$id}, {$_POST["all_price"]}, {$_POST["sup_price"]}, {$_POST["inst_price"]}, 1);";
         $retval = mysql_query($sql);
         if (! $retval) {
             die('Could not update data: ' . mysql_error());
@@ -164,8 +164,12 @@ if (isset($_POST["insert"])) {
                         ?>
                     </select>
                     <br/>
-                    <label for="product_price">Product Price:</label>
-                    <input type="text" name="product_price" value='<?php echo ($insert == false ?  $price_ret['price'] : ""); ?>'>                                        
+                    <label for="product_price">All inclusive Price:</label>
+                    <input type="text" name="all_price" value='<?php echo ($insert == false ?  $price_ret['inclucivePrice'] : ""); ?>'>
+                    <label for="product_price">Supply only Price:</label>
+                    <input type="text" name="sup_price" value='<?php echo ($insert == false ?  $price_ret['Supply_onlyPrice'] : ""); ?>'>  
+                    <label for="product_price">Install only Price:</label>
+                    <input type="text" name="inst_price" value='<?php echo ($insert == false ?  $price_ret['Install_onlyPrice'] : ""); ?>'>                                          
                     <br/>
                     <?php echo ($insert?  "<input type='submit' name='insert' value='New Product'>" : ""); ?>
                     <?php echo ($insert == false ?  "<input type='submit' name='edit' value='Edit Product'>" : ""); ?>

@@ -6,6 +6,8 @@
 * use your server details in /dbconfig.php and /dashboard.php
 * open /letmein.php for reseting the admin password or creating the admin account.
 * * user: admin; Password: 123456
+* import the new schema for the extended price range
+* dummy data was used for the new prices
 
 ## Notes ##
 
