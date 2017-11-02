@@ -57,7 +57,7 @@ if (isset($_POST["edit"])) {
     if (! $retval) {
         die('Could not add data: ' . mysql_error());
     } else {
-        $sql = "UPDATE singletitle_price_list SET all_price={$_POST["product_price"]}, Supply_onlyPrice={$_POST["sup_price"]}, Install_onlyPrice={$_POST["inst_price"]} WHERE product_id={$product};";
+        $sql = "UPDATE singletitle_price_list SET inclucivePrice={$_POST["all_price"]}, Supply_onlyPrice={$_POST["sup_price"]}, Install_onlyPrice={$_POST["inst_price"]} WHERE product_id={$product};";
         $retval = mysql_query($sql);
         if (! $retval) {
             die('Could not add data: ' . mysql_error());
