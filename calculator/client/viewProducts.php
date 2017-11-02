@@ -118,11 +118,11 @@ function filter(){
         echo "<td>".$row['product_name']."</td>";
         echo "<td>".$row['category_name']."</td>";
         if (strcmp($price, "opt_SuppyFit") == 0)
-            echo "<td>".$row['inclucivePrice']."</td>";
-        else if (strcmp($price, "pot_Supply") == 0)
-            echo "<td>".$row['Supply_onlyPrice']."</td>";
-        else if (strcmp($price, "opt_Fit") == 0)
-            echo "<td>".$row['Install_onlyPrice']."</td>";
+            echo "<td>R ".$row['inclucivePrice']."</td>";
+        if (strcmp($price, "pot_Supply") == 0)
+            echo "<td>R ".$row['Supply_onlyPrice']."</td>";
+        if (strcmp($price, "opt_Fit") == 0)
+            echo "<td>R ".$row['Install_onlyPrice']."</td>";
         echo '<td><a href="/calculator/client/viewCalculator.php?id='.$row["product_id"].'&price='.$price.'" class="w3-btn w3-blue">Quote</td>';
         echo "</td></tr>";
         echo '<tr class="spacer '.$row[category_id].'"></tr>';
