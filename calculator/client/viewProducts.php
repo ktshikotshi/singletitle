@@ -112,12 +112,13 @@ function filter(){
     </tr>
     <tr class="spacer"></tr>
     <?php
+    $price = empty($_POST["radio"])? "opt_SuppyFit" : $_POST["radio"];
     while ($row = mysql_fetch_array($result)) {
         echo '<tr class="'.$row[category_id].'"><td><a href="../domain/viewProductPage.php?ID='.$row['price'].'"><i class="fa fa-external-link"></i></a></td>';
         echo "<td>".$row['product_name']."</td>";
         echo "<td>".$row['category_name']."</td>";
-        echo "<td>".$row['price']."</td>";
-        echo '<td><a href="/calculator/client/viewCalculator.php?id='.$row['product_id'].'" class="w3-btn w3-blue" style="text-decoration: none;">get quote</a>';
+        echo "<td>".$row['inclucivePrice']."</td>";
+        echo '<td><a href="/calculator/client/viewCalculator.php?id='.$row["product_id"].'&price='.$price.'" class="w3-btn w3-blue">Quote</td>';
         echo "</td></tr>";
         echo '<tr class="spacer '.$row[category_id].'"></tr>';
     }
@@ -131,15 +132,17 @@ function filter(){
       <tr>
         <td>&nbsp;</td>
       </tr>
+      <form method="post">
       <tr><td>
-        <input type="radio" name="radio" id="opt_SuppyFit" value="opt_SuppyFit" />
+        <input type="radio" name="radio" id="opt" value="opt_SuppyFit"  <?php echo strcmp($price,"opt_SuppyFit") == 0? "Checked" : ""; ?>/>
         Suppy and Fit</td ></tr>
         <tr class="spacer"></tr>
-        <tr><td><input type="radio" name="radio" id="pot_Supply" value="pot_Supply" />
+        <tr><td><input type="radio" name="radio" id="opt" value="pot_Supply" <?php echo strcmp($price,"pot_Supply") == 0? "Checked" : ""; ?>/>
         Supply only</td ></tr>
         <tr class="spacer"></tr>
-        <tr><td><input type="radio" name="radio" id="opt_Fit" value="opt_Fit" />
+        <tr><td><input type="radio" name="radio" id="opt" value="opt_Fit" <?php echo strcmp($price,"opt_Fit") == 0? "Checked" : ""; ?>/>
         Fit only</td></tr>
+        <tr class="spacer"><td style="text-align: right;"><button type ="submit" name="submit" class="w3-btn w3-orange">Update Pricing method</button></td>
         <tr class="spacer"></tr>
         <tr class="spacer"></tr>
         <tr class="spacer"></tr>
@@ -158,6 +161,7 @@ function filter(){
         <tr class="spacer"><td style="text-align: right;"><input type = "button" onClick="filter();" value="Apply Filter" class="w3-btn w3-orange"/></td>
         </td>
       </tr>
+      </form>
     </table>
 
 </div>

@@ -26,9 +26,17 @@
             exit();
             }
             else
-                $unitPrice = $price_ret["price"];
+            {    
+                if (strcmp($_GET["price"], "pot_Supply") == 0)
+                    $unitPrice = $price_ret["Supply_onlyPrice"];
+                else if (strcmp($_GET["price"], "opt_Fit") == 0)
+                    $unitPrice = $price_ret["Install_onlyPrice"];
+                else
+                $unitPrice = $price_ret["inclucivePrice"];
+
             }
         }
+    }
     $posted = false;
     if (isset($_POST["submit"])){
         $width = $_POST["width"];
@@ -39,6 +47,9 @@
         $area = $width * $length;
         $totalPrice = ($area * $unitPrice) + $extra;
     }
+    $reset = false;
+    if (isset($_POST["reset"]))
+        $reset = true;
 ?>
     <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
@@ -210,9 +221,8 @@
                                 <td>
                                     <label style="font-size:35px;">
                                         <?php
-                                        if ($posted == true){
-                                            echo $totalPrice;
-                                        } 
+                                        if ($posted == true)
+                                            echo $reset == false? "R ".$totalPrice : "";
                                         ?>
                                     </label>
                                 </td>
@@ -228,7 +238,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                <center><button type="reset" name="reset" class="w3-button w3-green resetbtn">Reset</button></center>                                    
+                                <center><button type="submit" name="reset" class="w3-button w3-green resetbtn">Reset</button></center>                                    
                                 </td>
                             </tr>
                         </table>
