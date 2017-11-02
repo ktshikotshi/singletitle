@@ -117,7 +117,12 @@ function filter(){
         echo '<tr class="'.$row[category_id].'"><td><a href="../domain/viewProductPage.php?ID='.$row['price'].'"><i class="fa fa-external-link"></i></a></td>';
         echo "<td>".$row['product_name']."</td>";
         echo "<td>".$row['category_name']."</td>";
-        echo "<td>".$row['inclucivePrice']."</td>";
+        if (strcmp($price, "opt_SuppyFit") == 0)
+            echo "<td>".$row['inclucivePrice']."</td>";
+        else if (strcmp($price, "pot_Supply") == 0)
+            echo "<td>".$row['Supply_onlyPrice']."</td>";
+        else if (strcmp($price, "opt_Fit") == 0)
+            echo "<td>".$row['Install_onlyPrice']."</td>";
         echo '<td><a href="/calculator/client/viewCalculator.php?id='.$row["product_id"].'&price='.$price.'" class="w3-btn w3-blue">Quote</td>';
         echo "</td></tr>";
         echo '<tr class="spacer '.$row[category_id].'"></tr>';
