@@ -83,7 +83,7 @@ if (isset($_POST["insert"])) {
         } else {
             //if update was successful, return to the table page.
             echo "Updated data successfully\n";
-            header("Location: http://localhost/calculator/client/dash.php");
+            header("Location: /dashboard/");
         }
     }
 }
