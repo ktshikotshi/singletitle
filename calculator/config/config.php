@@ -5,5 +5,5 @@ error_reporting(E_ERROR|E_PARSE);
 $localhost = "localhost";
 $database_name = "singletitle";
 $database_user = "root";
-$database_password = "";
+$database_password = "123456";
 ?>

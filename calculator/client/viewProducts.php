@@ -1,7 +1,8 @@
 <?php
     include("../../header.php");
     include("../scripts/_getAllProductsFormatted.php");
-    $_SESSION["newProd"] = false;     
+    $_SESSION["newProd"] = false; 
+    
 ?>
 <html>
 <head>
@@ -164,6 +165,7 @@ function filter(){
         <tr><td><input type="checkbox" name="category_LaminateFloors"  id="category_LaminateFloors" Checked />
         Laminate Floors</td ></tr>
         <tr class="spacer"><td style="text-align: right;"><input type = "button" onClick="filter();" value="Apply Filter" class="w3-btn w3-orange"/></td>
+        <tr class="spacer"><td><a href="showReport.php" class="w3-btn w3-orange">View product sales</a></td>
         </td>
       </tr>
       </form>

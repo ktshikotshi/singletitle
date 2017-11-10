@@ -23,7 +23,7 @@
             if (empty($price_ret))
             {
                 header("location : /calculator/client/viewProducts.php");
-            exit();
+                exit();
             }
             else
             {    
