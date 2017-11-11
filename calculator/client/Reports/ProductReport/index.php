@@ -8,11 +8,6 @@ $sales = new Sales;
 <link rel="stylesheet" href="../reportAssets/bootstrap-theme.min.css">
 <link rel="stylesheet" href="../reportAssets/bootstrap.min.css">
 <div class="container box-container">
-<div class="text-center">
-    <h1>Product Report</h1>
-    <h4>This shows all information related to products</h4>
-</div>
-<hr/>
 <?php
     $sales->run()->render("report");
 ?>

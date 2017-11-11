@@ -135,6 +135,7 @@ function filter(){
 <div id="afilter">
 
     <table class="prod">
+    <tr class="spacer"><td><a href="Reports/ProductReport/" class="w3-btn w3-green" style="width: 100%;">View product report</a></td>
       <tr>
         <td>&nbsp;</td>
       </tr>
@@ -165,7 +166,6 @@ function filter(){
         <tr><td><input type="checkbox" name="category_LaminateFloors"  id="category_LaminateFloors" Checked />
         Laminate Floors</td ></tr>
         <tr class="spacer"><td style="text-align: right;"><input type = "button" onClick="filter();" value="Apply Filter" class="w3-btn w3-orange"/></td>
-        <tr class="spacer"><td><a href="Reports/ProductReport/" class="w3-btn w3-orange">View product sales</a></td>
         </td>
       </tr>
       </form>
