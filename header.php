@@ -81,10 +81,14 @@ function getStyles(){ ?>
 				<li>
 				<a href="./editProduct.php">New Product</a>							
 				</li>
+				<li>
+				<a href="/calculator/client/Reports/ProductReport/">View product report</a>
+				</li>
+
 				<?php } ?>
-			<?php
-			if ($_SESSION['user'] == 'admin'){
-			 ?>
+				<?php
+					if ($_SESSION['user'] == 'admin'){
+			 	?>
 				<li>
 				<a href="/register.php?modif=1">Update Password</a>							
 				</li> 

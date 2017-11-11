@@ -58,6 +58,7 @@
         <title>Calculate</title>
         <?php getStyles(); ?>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="Reports/reportAssets/bootstrap.min.css">
         <style type="text/css">
             #container {
                 width: 603px;
@@ -149,7 +150,7 @@
             }
             .resetbtn{
                 color: #fff !important;
-                width: 160px;
+                width: 150px;
                 border-radius: 10px;
             }
             input{
@@ -238,8 +239,11 @@
                             </tr>
                             <tr>
                                 <td>
-                                <center><button type="submit" name="reset" class="w3-button w3-green resetbtn">Reset</button></center>                                    
+                                <div class="center-block" style="width: 100%;">
+                                <a href="viewProducts.php" class="w3-button w3-red resetbtn">Back to products</a> <a href="" class="w3-button w3-white resetbtn"></a><button type="submit" name="reset" class="w3-button w3-green resetbtn">Reset</button>                                    
+                                </div>
                                 </td>
+                            </tr>
                             </tr>
                         </table>
                     </div>

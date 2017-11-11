@@ -135,7 +135,6 @@ function filter(){
 <div id="afilter">
 
     <table class="prod">
-    <tr class="spacer"><td><a href="Reports/ProductReport/" class="w3-btn w3-green" style="width: 100%;">View product report</a></td>
       <tr>
         <td>&nbsp;</td>
       </tr>
